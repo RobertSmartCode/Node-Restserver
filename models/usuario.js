@@ -1,6 +1,14 @@
 const {Schema,model} = require('mongoose');
 
 const UsuarioSchema = Schema({
+    estado :{
+        type : Boolean,
+        default : true
+    },
+    google :{
+        type : Boolean,
+        default : false
+    },
     nombre :{
         type : String,
         required : [true, 'El nombre es obligatorio']
@@ -22,20 +30,14 @@ const UsuarioSchema = Schema({
         required : true,
         emun : ['ADMIN_ROLE', 'USER_ROLE']
     },
-    estado :{
-        type : Boolean,
-        default : true
-    },
-    google :{
-        type : Boolean,
-        default : false
-    },
+ 
 
 
 });
 
 UsuarioSchema.methods.toJSON = function(){
-    const {__v, password, ...usuario} = this.toObject();
+    const {__v, password, _id, ...usuario} = this.toObject();
+    usuario.uid = _id;
     return usuario;
 }
 
