@@ -6,9 +6,12 @@ const {
       validarJWT,
       esAdminRole,
       tieneRole
-} =  require('../middlewares')
+      } =  require('../middlewares')
 
-const {esRolValido, emailExiste,existeUsuarioPorId}= require('../helper/db-validators')
+const {esRolValido,
+       emailExiste,
+       existeUsuarioPorId
+      }= require('../helper/db-validators')
 
 const {
       usuariosGet,
