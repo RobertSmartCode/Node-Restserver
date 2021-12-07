@@ -7,9 +7,7 @@ const subirArchivo = ( files, extensionesValidas = ['png',, 'PNG', 'jpg','jpeg',
 
         const { archivo } = files;
        //Validar que exista el archivo
-        if(!archivo){
-            return reject(`No hay archivo`); 
-        }
+      
         const nombreCortado = archivo.name.split('.');
         const extension = nombreCortado[ nombreCortado.length - 1 ];
 
